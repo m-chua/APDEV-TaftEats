@@ -17,8 +17,8 @@
 }
 body{
     margin:0px;
-    
-    background-image: url("https://miro.medium.com/v2/resize:fit:3840/1*s0F0i9hHCwc756pbaYCWrQ.png");
+    height:100%;
+    position: fixed;
 }
 /*header*/
 .flexmain{
@@ -83,6 +83,27 @@ body{
 
 /*end header*/
 
+#menu{
+  display:none;
+}
+
+.menu-contents{
+  display: flex;
+  flex-direction: column;
+  background-color: seagreen;
+  color:rgb(123, 240, 123);
+  width:15%;
+  height:100%;
+  font-size: 16px;
+  left: 0;
+  position:absolute;
+  text-align: left;
+}
+.menu-links{
+  margin-top: 1cm;
+  padding-left: 0.5cm;
+  color: white;
+}
 #go{
 
 width:10px;
@@ -228,14 +249,13 @@ height:20px;
 
 /*Explore around taft*/
 .content{
-    width:100%;
     height:100%;
     padding:0px;
-    height:0px;
+    height:100%;
     font-size: 150px;
     color:white;
     text-align: center;
-    background-color: aqua;
+    background-image: url("https://miro.medium.com/v2/resize:fit:3840/1*s0F0i9hHCwc756pbaYCWrQ.png");
 }
 </style>
 
@@ -278,7 +298,7 @@ div.classList.replace("tags-selected", "tags");
     <div class = "flexmain">
         <div class = "flexrow flexheader">
             <div class = "headerleft">
-                <img src = "Images/menuicon.png">
+                <img onclick="toggleMenu()" src = "Images/menuicon.png">
                 <p>TAFT EATS</p>
             </div>
 
@@ -330,7 +350,20 @@ div.classList.replace("tags-selected", "tags");
         </div>
     </div>
     <div class="content">
-        Explore Food Around Taft
+
+      <div id="menu" class="menu-contents">
+        <div class="menu-links"><a href="example.com">DLSU</a><br></div>
+        <div class="menu-links"><a href="example.com">EGI</a><br></div>
+        <div class="menu-links"><a href="example.com">One Archers</a><br></div>
+        <div class="menu-links"> <a href="example.com">Green Residences</a><br></div>
+        <div class="menu-links"><a href="example.com">UMall</a><br></div>
+        <div class="menu-links"><a href="example.com">Manila Residences</a><br></div>
+        <div class="menu-links"><a href="example.com">RSquare</a><br></div>
+        <div class="menu-links"><a href="example.com">Burgundy</a><br></div>
+      </div>
+
+      <div>
+        Explore Food Around Taft</div>
 
     </div>
 
