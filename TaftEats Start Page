@@ -18,6 +18,7 @@
 body{
     margin:0px;
     height:100%;
+    width:100%;
     position: fixed;
 }
 /*header*/
@@ -86,23 +87,16 @@ body{
 #menu{
   display:none;
 }
-
 .menu-contents{
-  display: flex;
   flex-direction: column;
   background-color: seagreen;
   color:rgb(123, 240, 123);
-  width:15%;
+  width:23%;
   height:100%;
   font-size: 16px;
   left: 0;
   position:absolute;
   text-align: left;
-}
-.menu-links{
-  margin-top: 1cm;
-  padding-left: 0.5cm;
-  color: white;
 }
 #go{
 
@@ -124,6 +118,13 @@ height:10px;
   border: none;
 }
 
+#sidebar{
+background-color: seagreen;
+color: #ccc;
+width: 1cm;
+position: absolute;
+top:1cm;
+}
 .dropbtn > img{
     width: 75px;
     height: 75px;
@@ -151,13 +152,28 @@ height:10px;
   display: none;
   flex-direction: column;
   position: absolute;
-  transform: translateX(-44%);
+  transform: translateX(-35%);
   background-color: #f1f1f1;
-  min-width: 650px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  min-width:160px;
 }
 
+.dropdown-content a {
+  color: #000;
+}
+.nav-bar-drop{
+
+  
+  background-color: seagreen;
+  border: none;
+  color:white;
+}
+#advance-search{
+
+  min-width: 650px;
+
+}
 /* Change color of dropdown links on hover */
 .dropdown-content .filter:hover {background-color: #ddd;}
 
@@ -257,10 +273,89 @@ height:20px;
     text-align: center;
     background-image: url("https://miro.medium.com/v2/resize:fit:3840/1*s0F0i9hHCwc756pbaYCWrQ.png");
 }
+
+/* Fixed sidenav, full height */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: seagreen;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: #f1f1f1;
+}
+
+/* Main content */
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: green;
+  color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: yellowgreen;
+  width:100%;
+}
+
+.dropdown-container a{
+  padding: 5px;
+  padding-left: 6px;
+  margin:0%;
+  width:90%;
+
+}
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
 </style>
 
 
 <script>
+
+
+function toggleVisibility(ID) {
+  var dropdown = document.getElementById(ID);    
+  if(dropdown.style.display == "inline-block") { // if is menuBox displayed, hide it
+    dropdown.style.display = "none";
+  }
+  else { // if is menuBox hidden, display it
+    dropdown.style.display = "inline-block";
+  }
+}
 
 /*menu button *kinda broken*/
 function toggleMenu() {
@@ -352,14 +447,21 @@ div.classList.replace("tags-selected", "tags");
     <div class="content">
 
       <div id="menu" class="menu-contents">
-        <div class="menu-links"><a href="example.com">DLSU</a><br></div>
-        <div class="menu-links"><a href="example.com">EGI</a><br></div>
-        <div class="menu-links"><a href="example.com">One Archers</a><br></div>
-        <div class="menu-links"> <a href="example.com">Green Residences</a><br></div>
-        <div class="menu-links"><a href="example.com">UMall</a><br></div>
-        <div class="menu-links"><a href="example.com">Manila Residences</a><br></div>
-        <div class="menu-links"><a href="example.com">RSquare</a><br></div>
-        <div class="menu-links"><a href="example.com">Burgundy</a><br></div>
+        <div class="sidenav dropdown">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#clients">Clients</a>
+          <a href="#contact">Contact</a>
+          <button  class="dropdown-btn" onclick="toggleVisibility('contents1')">Dropdown 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div id="contents1" class="dropdown-container">
+            <a href="example.com">Link 1</a>
+            <a href="example.com">Link 2</a>
+            <a href="example.com">Link 3</a>
+          </div>
+          <a href="#contact">Search</a>
+        </div>
       </div>
 
       <div>
