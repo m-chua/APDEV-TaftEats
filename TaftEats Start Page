@@ -91,7 +91,7 @@ body{
   flex-direction: column;
   background-color: seagreen;
   color:rgb(123, 240, 123);
-  width:23%;
+  width:15%;
   height:100%;
   font-size: 16px;
   left: 0;
@@ -325,7 +325,7 @@ height:20px;
 .dropdown-container {
   display: none;
   background-color: yellowgreen;
-  width:100%;
+  min-width:100%;
 }
 
 .dropdown-container a{
